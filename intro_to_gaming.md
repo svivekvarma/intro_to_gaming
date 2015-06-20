@@ -3,7 +3,7 @@ footer: © New York Code + Design Academy 2015
 slidenumbers: true
 
 #[fit] Welcome to <br/>Intro To Game Development
-## (aka game from scratch)
+## (aka game dev from scratch)
 
 ---
 
@@ -51,7 +51,7 @@ slidenumbers: true
 
 ---
 
-# These frameworks tend to focus on 2D gaming experiences and the tools crafted for them.
+# These frameworks tend to focus on 2D gaming experiences of a specific type.
 
 ---
 
@@ -396,11 +396,11 @@ circle.on("click", function(e){
 # State machines
 
 - Bringing the feedback of animation, interaction from the user and reaction from collisions together.
-- allows you to design feedback from afar.
+- Introduces flow and control to your systems
 
 ---
 
-# State machines
+# State Machines
 
 ![inline](resources/fsm_dog.png)
 
@@ -413,8 +413,6 @@ circle.on("click", function(e){
 ---
 
 # For more:
-
-https://code.tutsplus.com/courses/game-development-with-easeljs
 
 warrenlongmire@gmail.com
 @warren_longmire
