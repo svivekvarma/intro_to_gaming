@@ -3,6 +3,7 @@ footer: © New York Code + Design Academy 2015
 slidenumbers: true
 
 #[fit] Welcome to <br/>Intro To Game Development
+## (aka game from scratch)
 
 ---
 
@@ -25,11 +26,12 @@ slidenumbers: true
 ---
 
 # Workshop structure
-- A little philosophy
 - Working with the Canvas
 - Benefits of a graphics package
 - The Three Types of Animation
 - Basic interaction
+- Hit Detection
+- State Machines
 
 ---
 
@@ -208,6 +210,9 @@ Libraries for sound, preloading assets, and tweening are also available.
 ---
 
 # Animating with tweens
+
+---
+# Animating with tweens
 - Allows for pre-set sequences of animations
 - Animations are automatically generated over time for any attribute over a given length of time.
 - stage updates are handled automatically
@@ -248,6 +253,9 @@ Libraries for sound, preloading assets, and tweening are also available.
 
 # Animating with sprites
 
+---
+# Animating with sprites
+
 - Used for character based 2d animation and pixel art.
 - Takes a sequence of static images and shows them in sequence over a length of time.
 
@@ -270,6 +278,143 @@ http://www.htmlgoodies.com/html5/client/html5-gaming-how-to-animate-sprites-in-c
 ---
 
 # Simple Interaction
-- Easel Allows for 
+## Mousing object
+
+- Easel Allows for mouse interaction on an object as if it was a dom object
+
+```javascript
+stage.enableMouseOver(10);
+
+circle.on("click", function(e){
+	console.log("clicked");
+});   
+
+```
 
 ---
+
+# Simple Interaction
+## Mousing The Stage
+
+- You can interact with the stage itself using stagemouse events.
+- Make sure to enable mouseover
+- Touch available as well.
+
+```javascript
+    
+        createjs.Touch.enable(stage);
+        stage.enableMouseOver(10);
+        
+        stage.addEventListener("stagemouseup", handleMouseUp);
+
+	function handleMouseUp(event) {
+        	// createjs.Tween.get(circle)
+	        //   .to({x: stage.mouseX, y: stage.mouseY}, 500, createjs.Ease.bounceOut);
+      	}
+
+```
+
+---
+
+# Simple Interaction
+## Accessing the mouse
+
+- The current mouse coordinates are always accessible through the stage object
+
+```javascript
+    	
+        stage.enableMouseOver(10);
+	createjs.Ticker.addEventListener("tick", update);
+        
+	function update(event) {
+		circle.x = stage.mouseX;
+		circle.y = stage.mouseY;
+      	}
+
+```
+
+---
+
+# Simple Interaction
+## Keyboard Access
+
+- Can be handled through the document or any other keyboard event interface
+
+```javascript
+    	
+	this.document.onkeydown = keyPressed;
+
+	function keyPressed(event) {
+          switch(event.keyCode) {
+            case KEYCODE_LEFT:  
+              circle.x -= 5;
+              break;
+            case KEYCODE_RIGHT: 
+              circle.x += 5; 
+              break;
+            case KEYCODE_UP: 
+              circle.y -= 5;
+              break;
+            case KEYCODE_DOWN: 
+              circle.y += 5;
+              break;
+        }
+
+        stage.update();
+      }
+
+```
+
+---
+
+# Hit Detection
+
+---
+
+# Hit detection
+
+- The act of reacting
+- Can include making your game react when a mouse is beneath a point or finding out when two objects intersect
+- Mostly done on the level of bounding boxes (containers within creates)
+
+---
+
+# Hit detection
+
+- Container.getObjectUnderPoint() returns the top most display object under the specified point.
+- Container.getObjectsUnderPoint() returns all display objects under the specified point.
+- DisplayObject.hitTest() returns true if the specified point in the display object is non-transparent.
+- Box2D
+
+---
+
+# State machines
+## make it flow
+
+---
+
+# State machines
+
+- Bringing the feedback of animation, interaction from the user and reaction from collisions together.
+- allows you to design feedback from afar.
+
+---
+
+# State machines
+
+![inline](resources/fsm_dog.png)
+
+---
+
+# State machines
+
+![inline](resources/RenokiFlowchart.png)
+
+---
+
+# For more:
+
+https://code.tutsplus.com/courses/game-development-with-easeljs
+
+warrenlongmire@gmail.com
+@warren_longmire

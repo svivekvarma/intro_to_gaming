@@ -36,6 +36,12 @@
         circle.x = stage.canvas.width/2;
         circle.y = stage.canvas.height/2;
 
+
+        circle.on("click", function(e) {
+          var colors = ["red", "yellow", "green"]
+          circle.graphics.beginFill(colors[Math.floor(Math.random()*colors.length)]).drawCircle(0,0,50);
+        });
+
         stage.addChild(circle);
 
         stage.update();
@@ -45,8 +51,9 @@
 
         this.document.onkeydown = keyPressed;
 
-        stage.enableMouseOver(10);
         createjs.Touch.enable(stage);
+        stage.enableMouseOver(10);
+        
         stage.addEventListener("stagemouseup", handleMouseUp);
       }
 
@@ -65,12 +72,13 @@
             circle.y += 5;
             break;
         }
+
         stage.update();
       }
 
       function handleMouseUp(event) {
-        createjs.Tween.get(circle)
-          .to({x: stage.mouseX, y: stage.mouseY}, 500, createjs.Ease.bounceOut);
+        // createjs.Tween.get(circle)
+        //   .to({x: stage.mouseX, y: stage.mouseY}, 500, createjs.Ease.bounceOut);
       }
 
       function update(event) {
