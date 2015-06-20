@@ -27,6 +27,7 @@ slidenumbers: true
 # Workshop structure
 - A little philosophy
 - Working with the Canvas
+- Benefits of a graphics package
 - The Three Types of Animation
 - Using the State Machine
 
@@ -34,8 +35,9 @@ slidenumbers: true
 
 # Software
 
-- Createjs : suite of visualization, sound and asset loading tools
+- Easeljs : suite of visualization, sound and asset loading tools
 - Greensock's GSP : amazing tweening engine
+- https://github.com/wlongmire/intro_to_gaming
 
 ---
 
@@ -130,11 +132,44 @@ slidenumbers: true
 
 ---
 
-# Using Easel JS (or another graphics package)
+# Using EaselJS
+
+---
+
+# Using EaselJS
+## Just one part of the Createjs library
+
+Libraries for sound, preloading assets, and tweening are also available.
+
+---
+
+# Why use EaselJS
 
 - Object based graphics
 - Easy hierarchical relationships
-- 
+- Sprite Sheet integration
+- Graphic Filters
+- Interaction and touch events
+
+---
+
+# Why use EaselJS
+
+- Object based graphics
+- Easy hierarchical relationships
+- Sprite Sheet integration
+- Graphic Filters
+- Interaction and touch events
+
+---
+
+# Using EaselJS
+
+- createjs.stage object points to and controls canvas
+- createjs.shape object holds drawn graphics
+- craetejs.bitmap object holds images
+- Graphic Filters
+- Interaction and touch events
 
 ---
 

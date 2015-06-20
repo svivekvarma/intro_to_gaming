@@ -1,0 +1,71 @@
+<!doctype html>
+
+<html>
+
+<head>
+  <style>
+    body {
+      margin: 0px;
+      padding: 0px;
+    }
+  </style>
+</head> 
+
+<body>
+  <canvas id="myCanvas" width="800" height="600"></canvas>
+
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://code.createjs.com/easeljs-0.8.1.min.js"></script>
+  <script>
+
+    $(function(){
+      //http://www.createjs.com/docs/easeljs/classes/Graphics.html
+
+      function load() {
+        var image = new Image();
+        
+        image.src = "http://images.pushsquare.com/news/2014/03/is_overdue_team_ico_title_the_last_guardian_coming_to_ps4/large.jpg";
+
+        image.onload = draw;
+      }
+
+      function draw(event) {
+        var image = event.target;
+
+        var stage = new createjs.Stage("myCanvas");
+        var bitmap = new createjs.Bitmap(image);
+
+        stage.addChild(bitmap);
+        stage.update();
+
+        var container = new createjs.Container();
+
+        var circle = new createjs.Shape();
+        circle.graphics.beginFill("#333333").drawCircle(0, 0, 50);
+        circle.x = 100;
+        circle.y = 100;
+        container.addChild(circle);
+
+        var line = new createjs.Shape();
+        line.graphics.setStrokeStyle(1);
+        line.graphics.beginStroke("#000000");
+        line.graphics.beginFill("red");
+        line.graphics.mt(0,0);
+        line.graphics.lt(100,100);
+        container.addChild(line);
+
+        stage.addChild(container);
+
+        stage.update();
+
+        container.x += 10;
+        container.y += 10;
+      }
+
+      load();
+    });
+
+  </script>
+</body>
+
+</html> 
