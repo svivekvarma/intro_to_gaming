@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>EaselJS Sprites Tutorial 01</title>
+</head>
+	
+<body>
+	<canvas id="myCanvas" width="800" height="600"></canvas>
+    <!-- <button id="Start" onclick=init();>Start</button><button id="Reset" onclick=reset();>Reset</button> -->
+
+    <script src="http://code.createjs.com/easeljs-0.6.0.min.js"></script>
+    
+    <script>
+        var canvas, stage, screen_width, screen_height, bmpAnimation;
+        var imgMonsterARun = new Image();
+
+        function init() {
+            canvas = document.getElementById("myCanvas");
+
+            imgMonsterARun.onload = handleImageLoad;
+            imgMonsterARun.src = "imgs/MonsterARun.png";
+        }
+
+        function handleImageLoad(e) {
+            startGame();
+        }
+
+        function startGame() {
+            stage = new createjs.Stage(canvas);
+            
+            screen_width = canvas.width;
+            screen_height = canvas.height;
+            
+            var spriteSheet = new createjs.SpriteSheet({
+                images: [imgMonsterARun], 
+                frames: {width: 64, height: 64, regX: 32, regY: 32}, 
+                animations: {   
+                    walk: [0, 9, "walk"]
+                }
+            });
+            
+            bmpAnimation = new createjs.BitmapAnimation(spriteSheet);
+
+            bmpAnimation.gotoAndPlay("walk");
+            
+            bmpAnimation.shadow = new createjs.Shadow("#454", 0, 5, 4);
+
+            bmpAnimation.name = "monster1";
+            bmpAnimation.xSpeed = 10;
+            bmpAnimation.x = 16;
+            bmpAnimation.y = 32;
+                
+            bmpAnimation.currentFrame = 0;
+            stage.addChild(bmpAnimation);
+                
+            createjs.Ticker.addEventListener("tick", tick);
+            createjs.Ticker.setFPS(20);
+        }
+
+        function tick() {
+            if (bmpAnimation.x >= screen_width - 16) {
+                bmpAnimation.direction = -90;
+            }
+
+            if (bmpAnimation.x < 16) {
+                bmpAnimation.direction = 90;
+            }
+
+            if (bmpAnimation.direction == 90) {
+                bmpAnimation.x += bmpAnimation.xSpeed;
+            }
+            else {
+                bmpAnimation.x -= bmpAnimation.xSpeed;
+            }
+
+            stage.update();
+        }
+
+        init();
+    </script>
+</body>
+</html>
