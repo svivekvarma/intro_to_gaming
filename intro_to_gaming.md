@@ -29,14 +29,14 @@ slidenumbers: true
 - Working with the Canvas
 - Benefits of a graphics package
 - The Three Types of Animation
-- Using the State Machine
+- Basic interaction
 
 ---
 
 # Software
 
 - Easeljs : suite of visualization, sound and asset loading tools
-- Greensock's GSP : amazing tweening engine
+- Tweenjs : excellent tweening engine
 - https://github.com/wlongmire/intro_to_gaming
 
 ---
@@ -168,17 +168,108 @@ Libraries for sound, preloading assets, and tweening are also available.
 - createjs.stage object points to and controls canvas
 - createjs.shape object holds drawn graphics
 - craetejs.bitmap object holds images
-- Graphic Filters
-- Interaction and touch events
+- createjs.container object holds composite graphic objects
+- http://www.createjs.com/docs/easeljs/classes/Graphics.html
 
 ---
 
 # The Three Types of Animation
-## Getting started
+## The Game Loop Tweening, and Sprites
 
 ---
 
-# Using the State Machine
-## Getting started
+# Animating with the Game Loop
+
+---
+
+# Animating with the Game Loop
+
+- A Game loop (or render loop) is a common pattern used in computer graphics.
+- A single function at regular intervals.
+- Graphic objects are updated according to a speed based on the time between function calls.
+- The stage is redrawn.
+- Used for user interactions, physics simulations, 
+
+---
+
+# Animating with the Game Loop
+- In Easel this is accomplished using the Ticker class.
+```javascript
+    createjs.Ticker.addEventListener("tick", tick);
+    //setup stage and shape object
+    //attach to stage
+  
+    function tick() { 
+	shape.x += 1;
+	stage.update();
+    }
+
+```
+---
+
+# Animating with tweens
+- Allows for pre-set sequences of animations
+- Animations are automatically generated over time for any attribute over a given length of time.
+- stage updates are handled automatically
+- Also requires an implicit use of the Ticker class
+- Great for flashy animations that do not require environment interaction (UI, feedback)
+- Look at greenback's GSP package when you get a chance.
+
+---
+
+# Animating with tweens
+
+```javascript
+    
+    //assume circle created and added to stage
+    createjs.Tween.get(circle)
+          .to({ x: 100 }, 500, createjs.Ease.linear)
+
+    createjs.Ticker.setFPS(60);    
+    createjs.Ticker.addEventListener("tick", stage);
+
+```
+---
+
+# Animating with tweens
+
+```javascript
+    
+    //assume circle created and added to stage
+    createjs.Tween.get(circle)
+          .to({ x: 100 }, 500, createjs.Ease.linear)
+
+    createjs.Ticker.setFPS(60);    
+    createjs.Ticker.addEventListener("tick", stage);
+
+```
+
+---
+
+# Animating with sprites
+
+- Used for character based 2d animation and pixel art.
+- Takes a sequence of static images and shows them in sequence over a length of time.
+
+---
+
+# Animating with sprites
+
+![inline](resources/sonic.gif)
+
+---
+
+# Animating with sprites
+
+http://www.htmlgoodies.com/html5/client/html5-gaming-how-to-animate-sprites-in-canvas-with-easeljs.html#fbid=T8__qj8V36e
+
+---
+
+# Simple Interaction
+
+---
+
+# Simple Interaction
+- Easel Allows for 
 
 ---
