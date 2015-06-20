@@ -1,0 +1,35 @@
+<!doctype html>
+
+<html>
+
+<head>
+  <style>
+    body {
+      margin: 0px;
+      padding: 0px;
+    }
+  </style>
+</head> 
+
+<body>
+  <canvas id="myCanvas" width="578" height="200"></canvas>
+
+  <script>
+    var canvas = document.getElementById('myCanvas');
+    var context = canvas.getContext('2d');
+
+    // do cool things with the context
+    context.fillStyle = "green";
+    context.fillRect(10,10, 100, 100);
+
+    context.font = '40pt Calibri';
+    context.fillStyle = 'blue';
+    context.fillText('Hello World!', 150, 100);
+
+    // var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+    // window.location.href = image;
+
+  </script>
+</body>
+
+</html> 
